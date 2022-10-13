@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-NASM",
+            "command": "nasm", //nasm -f macho64 $(source).asm -DDARWIN
+            "args": [
+                "-f","macho64",
+                "-F","dwarf",
+                "-g","${file}"
+            ]
+        },
+        {
+            "label": "ld-OSx",
+            "command": "/usr/bin/ld", //ld $(source).o -o $(source) -demangle -dynamic -macosx_version_min 11.0 -L/usr/local/lib -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -lSystem -no_pie
+            "args": [
+                "${fileDirname}/${fileBasenameNoExtension}.o",
+                "-o","${fileDirname}/${fileBasenameNoExtension}",
+                "-demangle",
+                "-dynamic",
+                "-macosx_version_min","11.0",
+                "-L","/usr/local/lib",
+                "-syslibroot","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+                "-lSystem",
+                "-no_pie"
+            ],
+            "dependsOn": [
+                "build-NASM"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "error"
+                }
+            },
+            "presentation": {
+                "focus": true,
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },        
+    ]
+}

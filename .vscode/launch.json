@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "macho64",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "${workspaceFolder}",
+            "args": [],
+            "preLaunchTask": "ld-OSx"
+        },
+    ]
+}
