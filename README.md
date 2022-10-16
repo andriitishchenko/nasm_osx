@@ -4,6 +4,16 @@
 NASM - The Netwide Assembler 
 
 >If you newcomer to NASM, start with DOCS https://www.nasm.us/docs.php , it will save your time.
+
+
+Perhaps instead of setting up the environment locally, you could try the online NASM IDE. In this case, most examples from the Internet will work without special modifications for Macos.
+
+* x64 https://www.mycompiler.io/new/asm-x86_64
+* x64 https://ideone.com/qETYF4
+* x32 https://www.tutorialspoint.com/compile_assembly_online.php
+* x32 https://www.jdoodle.com/compile-assembler-nasm-online/
+* x32 https://rextester.com/l/nasm_online_compiler
+
 -----
 [Part 1](README.md) | [Part 2](part2.md)
 -----
@@ -67,6 +77,14 @@ $ make source=filename
 ```
 $ make source=test
 ```
+
+# Using clang
+
+```
+$ nasm -f macho64 test.asm
+$ clang -g -o test test.o -Wl,-no_pie
+```
+
 
 # Lets build and debug *.asm directly from Visual Studio Code(VSCode).
 
@@ -167,10 +185,24 @@ Now open file "test.asm" and press **F5** (Run->Start Debug). Breackpoints must 
 >In debug mode, from the left panel, you can observe the state of the registers in the "VARIABLES" section.
 
 
-# Xcode build *.asm
+# Xcode build 
 
-Create a new build target with an external build system and customize it with the above commands.
+>There are no registers debug window
 
+Where are 2 ways:
+1. Create a new build target with an external build system and customize it with the above commands.
+
+2. Build Rules -> Custom -> [+]
+
+Process file with names matching: *.asm
+Using stript:
+```
+/usr/local/bin/nasm -f macho64 ${INPUT_FILE_PATH} -o ${SCRIPT_OUTPUT_FILE_0}
+```
+In the "Output Files" section and add the following:
+```
+$(DERIVED_FILE_DIR)/${INPUT_FILE_BASE}.o
+```
 
 
 ## addons

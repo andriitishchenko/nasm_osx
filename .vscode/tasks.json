@@ -42,6 +42,34 @@
                 "reveal": "silent",
                 "clear": true
             }
-        },        
+        },
+        {
+            "label": "clang-OSx",
+            "command": "/usr/bin/clang", // clang -g -o nasm_hw nasm_hw.o -Wl,-no_pie
+            "args": [
+                "${fileDirname}/${fileBasenameNoExtension}.o",
+                "-o","${fileDirname}/${fileBasenameNoExtension}",
+                "-g",
+                "-Wl,-no_pie"
+            ],
+            "dependsOn": [
+                "build-NASM"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "error"
+                }
+            },
+            "presentation": {
+                "focus": true,
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },   
     ]
 }

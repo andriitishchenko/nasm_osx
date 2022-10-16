@@ -4,11 +4,20 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "macho64",
+            "name": "build+ld",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
             "args": [],
             "preLaunchTask": "ld-OSx"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "build+clang",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "${workspaceFolder}",
+            "args": [],
+            "preLaunchTask": "clang-OSx"
         },
     ]
 }
