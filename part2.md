@@ -1,8 +1,11 @@
 
-[Part 1](README.md) | [Part 2](part2.md)
+[Part 1](README.md) | [Part 2](part2.md) | [Part 3](part3.md)
 -----
 
 # Registers and Types
+
+https://markfloryan.github.io/pdr/slides/reiss/asm.pdf
+
 
 |64-bit long |Notes|Type|32-bit int|16-bit short|8-bit char|
 |-|-|-|-|-|-|
@@ -87,5 +90,5 @@ Len: equ $-Msg
 
 
 -----
-[Part 1](README.md) | [Part 2](part2.md)
+[Part 1](README.md) | [Part 2](part2.md) | [Part 3](part3.md)
 -----

@@ -15,7 +15,7 @@ Perhaps instead of setting up the environment locally, you could try the online 
 * x32 https://rextester.com/l/nasm_online_compiler
 
 -----
-[Part 1](README.md) | [Part 2](part2.md)
+[Part 1](README.md) | [Part 2](part2.md) | [Part 3](part3.md)
 -----
 
 # Intro to NASM
@@ -213,5 +213,5 @@ and LLDB itself https://lldb.llvm.org/use/map.html
 
 
 -----
-[Part 1](README.md) | [Part 2](part2.md)
+[Part 1](README.md) | [Part 2](part2.md) | [Part 3](part3.md)
 -----
